@@ -1,0 +1,50 @@
+[
+    {
+        "_id": 1,
+        "name": "Sushi Sashimi",
+        "price": 25.00,
+        "description": "Things You Need To Know There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "available": 300,
+        "img": "https://i.ibb.co/cD7FGGz/1.webp"
+    },
+    {
+        "_id": 2,
+        "name": "Sushi Sashimi",
+        "price": 25.00,
+        "description": "Things You Need To Know There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "available": 300,
+        "img": "https://i.ibb.co/2sTVwPv/2.webp"
+    },
+    {
+        "_id": 3,
+        "name": "Sushi Sashimi",
+        "price": 25.00,
+        "description": "Things You Need To Know There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "available": 300,
+        "img": "https://i.ibb.co/y8dFST6/3.webp"
+    },
+    {
+        "_id": 4,
+        "name": "Sushi Sashimi",
+        "price": 25.00,
+        "description": "Things You Need To Know There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "available": 300,
+        "img": "https://i.ibb.co/fr4vz1Q/4.webp"
+    },
+    {
+        "_id": 5,
+        "name": "Sushi Sashimi",
+        "price": 25.00,
+        "description": "Things You Need To Know There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "available": 300,
+        "img": "https://i.ibb.co/Rght5Mm/5.webp"
+    },
+    {
+        "_id": 6,
+        "name": "Sushi Sashimi",
+        "price": 25.00,
+        "description": "Things You Need To Know There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
+        "available": 300,
+        "img": "https://i.ibb.co/K93W4qn/6.webp"
+    }
+]
