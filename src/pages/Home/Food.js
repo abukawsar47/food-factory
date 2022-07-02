@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import FoodDetails from './modal/FoodDetails';
 
 const Food = ({ food }) => {
+    const [foodDetails, setFoodDetails] = useState(null);
+
 
     return (
 
@@ -16,9 +19,17 @@ const Food = ({ food }) => {
                     <p><strong className=''>Price: ${food?.price}</strong></p>
                     <p><strong className=''>Available Quantity: {food?.available}</strong></p>
                     <div class="card-actions">
-                        <button class="btn btn-sm btn-primary hover:btn-secondary duration-1000 font-bold">Buy Now</button>
+                        <label
+                            onClick={() => { setFoodDetails(food) }}
+                            for="my-modal-3"
+                            class="btn btn-sm btn-primary hover:btn-secondary duration-1000 font-bold"
+                        >Buy Now</label>
                     </div>
                 </div>
+                {foodDetails && <FoodDetails
+                    foodDetails={foodDetails}
+                    setFoodDetails={setFoodDetails}
+                />}
             </div>
         </>
     );

@@ -5,13 +5,14 @@ const Foods = () => {
     const [foods, setFoods] = useState([]);
 
 
+
     useEffect(() => {
-        fetch('/foodsData.json')
+        fetch('http://localhost:5000/foods')
             .then(res => res.json())
             .then(data => {
                 const reversedData = data.reverse();
                 setFoods(reversedData)
-                console.log(reversedData)
+                console.log(data)
             });
 
     }, []);

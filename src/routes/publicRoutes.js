@@ -8,7 +8,8 @@ import NotFound from "../pages/NotFound";
 export const publicRoute = [
     { path: "/", name: "Home", Component: Home },
     { path: "/about", name: "About", Component: About },
-    { path: "/foods", name: "foods", Component: Foods },
+    { path: "/foods", name: "Foods", Component: Foods },
+    { path: "/foods:id", name: "foods ID", Component: Foods },
     { path: "/contact", name: "Contact", Component: Contact },
     { path: "/login", name: "Login", Component: Login },
     { path: "*", name: "NotFound", Component: NotFound },
