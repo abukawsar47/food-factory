@@ -70,10 +70,10 @@ const Navbar = ({ children }) => {
         </label>
     </>
     return (
-        <div className="drawer ">
+        <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
-                <div className="w-full navbar bg-base-100 fixed top-0 z-50 lg:px-20">
+                <div className="w-full navbar bg-base-100 sticky top-0 z-50 lg:px-20">
                     <div className="flex-1 px-2 mx-2">
                         <img
                             className='md:w-50 w-40'

@@ -1,10 +1,10 @@
 import React from 'react';
-import banner from '../../assets/images/vbc.jpg'
+import contactBg from '../assets/images/contact/contact.jpg'
 
-const Landing = () => {
+const ContactBanner = () => {
     return (
-        <div class="hero min-h-screen"
-            style={{ backgroundImage: `url(${banner})` }}
+        <div class="hero min-h-[80vh]"
+            style={{ backgroundImage: `url(${contactBg})` }}
         >
             <div class="hero-overlay bg-opacity-60"></div>
             <div class="hero-content text-center text-white">
@@ -14,24 +14,17 @@ const Landing = () => {
                         data-aos="fade-up"
                         data-aos-delay="200"
                         data-aos-duration="2000"
-                    >Get Started
-                        With a Healthier You</h1>
+                    >Contact US</h1>
                     <p
                         class="mb-6 text-xl font-semibold"
                         data-aos="fade-up"
                         data-aos-delay="400"
                         data-aos-duration="1500"
                     >We make eating healthy convenient and delicious so you can have more time to do the things you love.</p>
-                    <button
-                        class="btn btn-primary hover:btn-secondary duration-1000 font-bold px-10"
-                        data-aos="zoom-out"
-                        data-aos-delay="900"
-                    // data-aos-duration="1000"
-                    >Get Started</button>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Landing;
+export default ContactBanner;

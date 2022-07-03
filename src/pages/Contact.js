@@ -1,9 +1,14 @@
 import React from 'react';
+import ContactBanner from '../components/ContactBanner';
+import ContactEmail from '../components/ContactEmail';
+import ContactInfo from '../components/ContactInfo';
 
 const Contact = () => {
     return (
         <div>
-            <h1>Contact Page</h1>
+            <ContactBanner />
+            <ContactInfo />
+            <ContactEmail />
         </div>
     );
 };

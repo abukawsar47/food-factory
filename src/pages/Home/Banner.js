@@ -27,7 +27,7 @@ const Banner = () => {
                             </video>
                         </div>
                         <div className='lg:w-1/2 text-center lg:text-start'>
-                            <h1 class="text-5xl font-bold uppercase">We Provide best FOODS in town!</h1>
+                            <h1 class="lg:text-5xl text-2xl font-bold uppercase">We Provide best FOODS in town!</h1>
                             <p class="py-6 max-w-xl">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
                             <button class="btn btn-primary hover:btn-secondary duration-1000 font-bold px-10">Order Now</button>
                         </div>
