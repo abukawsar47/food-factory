@@ -3,12 +3,18 @@ import { Link } from 'react-router-dom';
 import twitter from '../assets/images/gif-icon/icons8-twitter.gif'
 import facebook from '../assets/images/gif-icon/icons8-facebook-circled.gif'
 
-const Login = () => {
+const SignUP = () => {
     return (
         <div class="flex justify-center items-center min-h-[95vh]">
             <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <div class="card-body">
-                    <h2 className='text-2xl font-bold text-center'>Login</h2>
+                    <h2 className='text-2xl font-bold text-center'>Sign UP</h2>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">Name</span>
+                        </label>
+                        <input type="text" placeholder="name" class="input input-bordered" />
+                    </div>
                     <div class="form-control">
                         <label class="label">
                             <span class="label-text">Email</span>
@@ -21,14 +27,11 @@ const Login = () => {
                         </label>
                         <input type="text" placeholder="password" class="input input-bordered" />
                         <label class="label">
-                            <Link to='' class="label-text-alt link link-hover">Forgot password? <span className='text-secondary'>Reset Password</span></Link>
-                        </label>
-                        <label class="label">
-                            <Link to='/signup' class="label-text-alt link link-hover">New to here? <span className='text-secondary'>Create a new account</span></Link>
+                            <Link to='/login' class="label-text-alt link link-hover">Already have an account? <span className='text-secondary'>Please Login</span></Link>
                         </label>
                     </div>
                     <div class="form-control mt-1">
-                        <button class="btn btn-primary">Login</button>
+                        <button class="btn btn-primary">Sign UP</button>
                         <div class="divider">OR</div>
                         <div className='flex justify-evenly'>
                             <button
@@ -40,6 +43,7 @@ const Login = () => {
                                 title='Login With Google'
                                 class="btn btn-square btn-outline border-0 hover:bg-transparent">
                                 <svg
+                                    className=''
                                     xmlns="http://www.w3.org/2000/svg"
                                     x="0px"
                                     y="0px"
@@ -64,4 +68,5 @@ const Login = () => {
     );
 };
 
-export default Login;
+
+export default SignUP;
