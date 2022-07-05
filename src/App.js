@@ -5,6 +5,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import Footer from "./pages/Footer";
+import AllFoods from "./pages/AllFoods"
+import PrivateRoute from "./authentication/PrivateRoute";
 
 function App() {
 
@@ -24,6 +26,14 @@ function App() {
                 element={<Component />}
               />)
           }
+          {/*  <Route path="/all-foods" element={
+            <PrivateRoute>
+              <AllFoods />
+            </PrivateRoute>
+          } /> */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/all-foods" element={<AllFoods />} />
+          </Route>
         </Routes>
         <Footer />
       </Navbar>
