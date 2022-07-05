@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../assets/images/logo.png'
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Navbar = ({ children }) => {
 
-    /*   const menuItems = <>
-  
-      </> */
+    const [user] = useAuthState(auth);
+    console.log(user);
+
+    const logout = () => {
+        signOut(auth);
+    };
+
     return (
         <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -47,11 +54,6 @@ const Navbar = ({ children }) => {
                                 className='rounded-lg hover:btn-secondary duration-1000 font-bold '
                             >Contact</NavLink></li>
 
-                            <li><NavLink
-                                to="/login"
-                                className='rounded-lg hover:btn-secondary duration-1000 font-bold '
-                            >Login</NavLink></li>
-
                             <li class='dropdown dropdown-hover dropdown-end '>
                                 <label
                                     tabIndex='0'
@@ -70,6 +72,35 @@ const Navbar = ({ children }) => {
                                         <a>Item 2</a>
                                     </li>
                                 </ul>
+                            </li>
+
+                            <li>
+                                {user ?
+                                    <Link
+                                        to=''
+                                        className='rounded-lg hover:btn-secondary duration-1000 font-bold '
+                                        onClick={logout}
+                                    >Sign Out</Link>
+                                    : <NavLink
+                                        to="/login"
+                                        className='rounded-lg hover:btn-secondary duration-1000 font-bold '
+                                    >Login</NavLink>
+                                }
+                            </li>
+
+                            <li className={!user ? 'hidden' : 'block'}>
+                                {user ?
+                                    <div className='avatar p-2 '>
+                                        <div className='w-8 rounded-full ring ring-primary ring-offset-base-100'>
+                                            <img src={
+                                                user?.photoURL
+                                                    ? user?.photoURL
+                                                    : "https://foxdogconsultants.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
+                                            } alt="user"
+                                            />
+                                        </div>
+                                    </div> : ''
+                                }
                             </li>
                         </ul>
                     </div>
@@ -100,10 +131,33 @@ const Navbar = ({ children }) => {
                         className='rounded-lg hover:btn-secondary duration-1000 font-bold '
                     >Contact</NavLink></li>
 
-                    <li><NavLink
-                        to="/login"
-                        className='rounded-lg hover:btn-secondary duration-1000 font-bold '
-                    >Login</NavLink></li>
+                    <li>
+                        {user ?
+                            <Link
+                                to=''
+                                className='rounded-lg hover:btn-secondary duration-1000 font-bold '
+                                onClick={logout}
+                            >Sign Out</Link>
+                            : <NavLink
+                                to="/login"
+                                className='rounded-lg hover:btn-secondary duration-1000 font-bold '
+                            >Login</NavLink>
+                        }
+                    </li>
+
+                    <li className='hidden'>
+                        {user ?
+                            <div className='avatar'>
+                                <div className='w-8 rounded-full ring ring-primary ring-offset-base-100'>
+                                    <img src={
+                                        user?.photoURL
+                                            ? user?.photoURL
+                                            : "https://foxdogconsultants.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png"
+                                    } alt="user" />
+                                </div>
+                            </div> : ''
+                        }
+                    </li>
                     <div tabIndex="0" className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
                         <div className="collapse-title text-xl font-medium">
                             BOOK NOW
