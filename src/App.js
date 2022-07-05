@@ -26,11 +26,14 @@ function App() {
                 element={<Component />}
               />)
           }
-          <Route path="/all-foods" element={
+          {/*  <Route path="/all-foods" element={
             <PrivateRoute>
               <AllFoods />
             </PrivateRoute>
-          } />
+          } /> */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/all-foods" element={<AllFoods />} />
+          </Route>
         </Routes>
         <Footer />
       </Navbar>
