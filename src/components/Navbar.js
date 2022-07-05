@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../assets/images/logo.png'
 import { Link, NavLink } from "react-router-dom"
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -12,7 +12,6 @@ const Navbar = ({ children }) => {
 
     const logout = () => {
         signOut(auth);
-        // localStorage.removeItem('accessToken');
     };
 
     return (
