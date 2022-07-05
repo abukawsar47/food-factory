@@ -144,7 +144,6 @@ const Navbar = ({ children }) => {
                             >Login</NavLink>
                         }
                     </li>
-
                     <li className='hidden'>
                         {user ?
                             <div className='avatar'>
