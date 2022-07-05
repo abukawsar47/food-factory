@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Foods = () => {
+const AllFoods = () => {
     return (
         <div>
-            <h1>Food</h1>
+            <h1>All Food</h1>
         </div>
     );
 };
 
-export default Foods;
+export default AllFoods;
