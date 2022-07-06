@@ -6,14 +6,12 @@ import NotFound from "../pages/NotFound";
 import SignUP from "../pages/SignUP";
 import FoodDetails from "../pages/Home/modal/FoodDetails";
 import Foods from "../pages/Home/Foods";
-// import AllFoods from "../pages/Home/AllFoods";
 
 export const publicRoute = [
     { path: "/", name: "Home", Component: Home },
     { path: "/about", name: "About", Component: About },
     { path: "/foods", name: "Foods", Component: Foods },
     { path: "/foods:id", name: "Foods ID", Component: FoodDetails },
-    // { path: "/all-foods", name: "All Foods", Component: AllFoods },
     { path: "/contact", name: "Contact", Component: Contact },
     { path: "/login", name: "Login", Component: Login },
     { path: "/signup", name: "SignUP", Component: SignUP },
