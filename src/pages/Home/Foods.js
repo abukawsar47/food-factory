@@ -21,10 +21,10 @@ const Foods = () => {
         <dir className="max-w-7xl mx-auto px-12">
             <div className='text-center lg:mb-12 mb-5'>
                 <h2 className='text-primary lg:text-5xl text-2xl font-bold mb-2 uppercase'>Our Best foods</h2>
-                <div class="divider w-1/2 mx-auto">
-                    <div class="rating ">
-                        <input type="radio" name="rating-4" class="mask mask-star-2 bg-secondary" />
-                        <input type="radio" name="rating-4" class="mask mask-star-2 bg-secondary" />
+                <div className="divider w-1/2 mx-auto">
+                    <div className="rating ">
+                        <input type="radio" name="rating-4" className="mask mask-star-2 bg-secondary" />
+                        <input type="radio" name="rating-4" className="mask mask-star-2 bg-secondary" />
                     </div>
                 </div>
                 <h4 className='text-xl'>We always try to provide the best food!</h4>
@@ -39,7 +39,7 @@ const Foods = () => {
                 }
             </div>
             <div className='lg:mt-12 mt-5 text-center'>
-                <button class="btn btn-primary hover:btn-secondary duration-1000 font-bold px-10">View All Items</button>
+                <button className="btn btn-primary hover:btn-secondary duration-1000 font-bold px-10">View All Items</button>
             </div>
         </dir>
     );

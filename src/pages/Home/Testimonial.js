@@ -3,7 +3,7 @@ import React from 'react';
 const Testimonial = ({ testimonial }) => {
     return (
         <div>
-            <div class="card  bg-base-100 shadow-xl lg:p-5">
+            <div className="card  bg-base-100 shadow-xl lg:p-5">
                 <div className='flex justify-center gap-2 mt-10'>
                     <div className="avatar">
                         <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 mr-5">
@@ -15,21 +15,21 @@ const Testimonial = ({ testimonial }) => {
                         </div>
                     </div>
                     <div className='text-left'>
-                        <h2 class="card-title font-bold">{testimonial?.name}</h2>
+                        <h2 className="card-title font-bold">{testimonial?.name}</h2>
                         <p>{testimonial?.profession}</p>
                         <p>
                             {/* {testimonial?.ratting} */}
-                            <div class="rating">
-                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                            <div className="rating">
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
                             </div>
                         </p>
                     </div>
                 </div>
-                <div class="card-body items-center text-center">
+                <div className="card-body items-center text-center">
                     <p className='text-xl font-bold lg:px-[15%]'>{testimonial?.comment}</p>
                 </div>
             </div>
