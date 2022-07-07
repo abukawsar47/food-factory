@@ -11,7 +11,7 @@ const Food = ({ food }) => {
             <div className="card  bg-base-100 shadow-xl">
                 <figure className="px-5 pt-5">
                     <div className='overflow-hidden'>
-                        <img src={food?.img} alt="food" className="rounded-xl duration-1000 hover:scale-[1.3]" />
+                        <img src={food?.img} alt="food" className="rounded-xl duration-1000 hover:scale-[1.3] " />
                     </div>
                 </figure>
                 <div className="card-body items-center text-center p-5">

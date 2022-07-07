@@ -78,7 +78,7 @@ const Navbar = ({ children }) => {
                             {
                                 admin && <li>
                                     <NavLink
-                                        to="/dashboard/addFood"
+                                        to="/dashboard"
                                         className='rounded-lg hover:btn-secondary duration-1000 font-bold '
                                     >Dashboard</NavLink>
                                 </li>
@@ -163,7 +163,7 @@ const Navbar = ({ children }) => {
                     {
                         admin && <li>
                             <NavLink
-                                to="/dashboard/addFood"
+                                to="/dashboard"
                                 className='rounded-lg hover:btn-secondary duration-1000 font-bold '
                             >Dashboard</NavLink>
 

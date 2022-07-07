@@ -9,7 +9,7 @@ import Footer from "./pages/Footer";
 import PrivateRoute from "./authentication/PrivateRoute";
 import AdminRoute from "./authentication/AdminRoute";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import AddAdmin from "./pages/Dashboard/AddAdmin";
+import AddEmployee from "./pages/Dashboard/AddEmployee";
 import AddFood from "./pages/Dashboard/AddFood";
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
           <Route element={<AdminRoute />}>
             <Route path="/dashboard" element={<Dashboard />}>
               <Route path="addFood" element={<AddFood />} />
-              <Route path="addAdmin" element={<AddAdmin />} />
+              <Route path="addEmployee" element={<AddEmployee />} />
             </Route>
           </Route>
         </Routes>

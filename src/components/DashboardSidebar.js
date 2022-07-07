@@ -24,9 +24,9 @@ const DashboardSidebar = () => {
                         </li>
                         <li>
                             <NavLink
-                                to="/dashboard/addAdmin"
+                                to="/dashboard/addEmployee"
                                 className='rounded-lg  hover:btn-secondary duration-800 font-bold'
-                            >Add Admin</NavLink>
+                            >Add Employee</NavLink>
                         </li>
 
                     </ul>

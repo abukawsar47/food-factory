@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddAdmin = () => {
+const AddEmployee = () => {
     return (
         <div>
             <h1>Add Admin Page</h1>
@@ -8,4 +8,4 @@ const AddAdmin = () => {
     );
 };
 
-export default AddAdmin;
+export default AddEmployee;
