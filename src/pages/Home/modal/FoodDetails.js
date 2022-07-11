@@ -1,21 +1,45 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import fetcher from "../../../api";
+// import fetcher from "../../../api";
+import auth from "../../../firebase.init";
 
 const FoodDetails = ({ foodDetails, setFoodDetails }) => {
-  const { name, price, description, available, img } = foodDetails;
+  const { name, price, description, available, img, _id } = foodDetails;
+  const { register, handleSubmit, errors, reset } = useForm();
+  const [user] = useAuthState(auth);
 
-  const { register, handleSubmit, reset } = useForm();
+  const handleOrder = handleSubmit(async (e) => {
+    e.preventDefault();
 
-  const onSubmit = async (data) => {
-    const serviceData = {
-      ...data,
+    const order = {
+      productId: _id,
+      img: img,
+      name: name,
+      price: price,
+      consumer: user?.email,
+      consumerName: user?.displayName,
+      quantity: e?.target?.quantity?.value,
+      phone: e?.target?.phone?.value,
+      address: e?.target?.address?.value,
     };
 
-    const res = await fetcher.post("order", serviceData);
-    console.log(res);
-    reset();
-  };
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        /*  if (result?.insertedId) {
+          toast.success("Successfully placed your order!");
+        } */
+        e.target.reset();
+      });
+  });
 
   return (
     <div>
@@ -31,46 +55,87 @@ const FoodDetails = ({ foodDetails, setFoodDetails }) => {
             ✕
           </label>
           <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="lg:flex items-center"
+            onSubmit={handleOrder}
+            className="flex flex-col lg:flex-row items-center "
           >
-            <img
-              className="w-96 h-96"
-              src={img}
-              alt="food"
-              {...register("img")}
-            />
+            <div className="">
+              <img
+                className="w-full"
+                src={img}
+                alt="food"
+                {...register("img")}
+              />
+            </div>
             <div className="lg:ml-5">
-              <h3 className="text-4xl font-bold my-2">{name}</h3>
-              <p className="py-2 text-xl font-bold">
+              <h3 className="text-2xl font-bold my-1">{name}</h3>
+              <p className="py-2 text-md font-bold">
                 Price: <span className="text-primary">${price}</span>
               </p>
-              <p className="py-2 text-xl font-bold">
+              <p className="py-2 text-md font-bold">
                 Available: <span className="text-primary">${available}</span>
               </p>
-              <p className="py-2">{description}</p>
-              <div className="form-control w-full max-w-md my-2">
+              <p className="py-1">{description}</p>
+              <div className="form-control w-full max-w-md my-1">
                 <label className="label">
-                  <strong className="label-text text-xl font-bold my-2">
+                  <strong className="label-text text-md font-bold my-1">
+                    Additional Info
+                  </strong>
+                </label>
+                <div className="flex flex-col lg:flex-row gap-3">
+                  <div>
+                    <input
+                      type="text"
+                      name="quantity"
+                      min="1"
+                      max={available}
+                      placeholder="Address"
+                      required
+                      class="input input-sm input-bordered w-full"
+                      {...register("address", { required: true })}
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="tel"
+                      name="quantity"
+                      length="11"
+                      placeholder="Order Quantity"
+                      required
+                      class="input input-sm input-bordered w-full"
+                      {...register("number", { required: true })}
+                    />
+                  </div>
+                </div>
+                <label className="label">
+                  <strong className="label-text text-md font-bold my-1">
                     Order Quantity
                   </strong>
                 </label>
-
-                <div className="flex gap-5">
+                <div className="flex flex-col lg:flex-row gap-3">
                   <div>
                     <input
                       type="number"
                       name="quantity"
                       min="1"
                       max={available}
-                      placeholder="Order Quantity"
-                      class="input input-bordered w-full"
+                      required
+                      class="input input-sm input-bordered w-full"
                       {...register("orderQuantity", { required: true })}
                     />
+                    {/*    <label className="label">
+                      <span className="label-text-alt text-error">
+                        {errors.order?.type === "required" &&
+                          "Order Quantity is required"}
+                        {errors?.order?.message}
+                      </span>
+                    </label> */}
                   </div>
-                  <button className="btn btn-primary hover:btn-secondary duration-1000 font-bold">
-                    Order Now
-                  </button>
+                  <input
+                    type="submit"
+                    // disabled={errors?.order}
+                    className="btn btn-sm btn-primary hover:btn-secondary duration-1000 font-bold "
+                    value="Order Now"
+                  />
                 </div>
               </div>
             </div>
