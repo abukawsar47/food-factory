@@ -7,17 +7,17 @@ const Delivery = () => {
             <div className='lg:min-h-[95vh]'>
                 <div className='text-center  lg:mt-28 lg:mb-20 my-5 block'>
                     <h2 className='text-primary lg:text-5xl text-2xl font-bold mb-2 uppercase'> food delivery</h2>
-                    <div class="divider w-1/2 mx-auto">
-                        <div class="rating ">
-                            <input type="radio" name="rating-4" class="mask mask-star-2 bg-secondary" />
-                            <input type="radio" name="rating-4" class="mask mask-star-2 bg-secondary" />
+                    <div className="divider w-1/2 mx-auto">
+                        <div className="rating ">
+                            <input type="radio" name="rating-4" className="mask mask-star-2 bg-secondary" />
+                            <input type="radio" name="rating-4" className="mask mask-star-2 bg-secondary" />
                         </div>
                     </div>
                     <h4 className='text-xl'>We are committed to delivery food quickly</h4>
                 </div>
-                <div class="hero  bg-base-100">
-                    <div class="hero-content text-center">
-                        <div class="max-w-sm">
+                <div className="hero  bg-base-100">
+                    <div className="hero-content text-center">
+                        <div className="max-w-sm">
                             <img src={delivery} alt="" />
                         </div>
                     </div>
