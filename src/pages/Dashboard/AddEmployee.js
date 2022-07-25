@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import fetcher from "../../api";
 import { useForm } from "react-hook-form";
+import fetcher from "../../api";
 
-const AddFood = () => {
+const AddEmployee = () => {
   const [imageURL, setImageURL] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -15,7 +15,7 @@ const AddFood = () => {
       img: imageURL,
     };
 
-    const res = await fetcher.post("foods", serviceData);
+    const res = await fetcher.post("employee", serviceData);
     console.log(res);
     reset();
     setImageURL("");
@@ -42,56 +42,54 @@ const AddFood = () => {
         console.log(error);
       });
   };
-
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="card flex-shrink-0 w-full max-w-2xl md:shadow-2xl bg-base-100  lg:my-16">
         <div className="card-body">
-          <h1 className="text-center font-bold text-4xl">Add Food</h1>
+          <h1 className="text-center font-bold text-4xl">Add Employee</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-control">
-              <label htmlFor="foodName" className="label">
-                <span className="label-text">Food Name</span>
-              </label>
-              <input
-                type="text"
-                id="foodName"
-                className="input input-bordered"
-                {...register("name")}
-              />
-            </div>
-            <div className=" flex lg:flex-row flex-col gap-5">
+            <div className="flex gap-5">
               <div className="w-full">
-                <label className="label">
-                  <span className="label-text">Price</span>
+                <label htmlFor="employeeName" className="label">
+                  <span className="label-text">Employee Name</span>
                 </label>
                 <input
-                  type="number"
-                  min="10"
+                  type="text"
+                  id="employeeName"
                   className="input input-bordered w-full"
-                  {...register("price")}
+                  {...register("name")}
                 />
               </div>
               <div className="w-full">
                 <label className="label">
-                  <span className="label-text">Available</span>
+                  <span className="label-text">Number</span>
                 </label>
                 <input
-                  type="number"
-                  min="10"
+                  type="tel"
+                  minLength="11"
                   className="input input-bordered w-full"
-                  {...register("available")}
+                  {...register("number")}
                 />
               </div>
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Description</span>
+                <span className="label-text">Email</span>
               </label>
-              <textarea
+              <input
+                type="email"
+                className="input input-bordered w-full"
+                {...register("email")}
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Role</span>
+              </label>
+              <input
                 type="text"
-                className="input input-bordered lg:h-[90px] h-[50px] pt-3"
-                {...register("description")}
+                className="input input-bordered "
+                {...register("role")}
               />
             </div>
 
@@ -104,7 +102,7 @@ const AddFood = () => {
                     : "btn btn-primary mt-5"
                 }
               >
-                {!imageURL ? "Upload Image" : "Ready To Upload"}
+                {!imageURL ? "Upload Employee Image" : "Ready To Upload"}
               </label>
               <input
                 type="file"
@@ -119,7 +117,7 @@ const AddFood = () => {
                 className="btn btn-primary"
                 disabled={!imageURL ? true : false}
               >
-                Add Food
+                Add Employee
               </button>
             </div>
           </form>
@@ -129,4 +127,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default AddEmployee;
