@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import AboutBanner from "../components/AboutBanner";
+import AboutUs from "../components/AboutUs";
 
 const About = () => {
-    return (
-        <div>
-            <h1>About</h1>
-        </div>
-    );
+  return (
+    <div>
+      <AboutBanner />
+      <AboutUs />
+    </div>
+  );
 };
 
 export default About;
