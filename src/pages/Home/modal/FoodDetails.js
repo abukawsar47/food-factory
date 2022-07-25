@@ -6,24 +6,28 @@ import auth from "../../../firebase.init";
 
 const FoodDetails = ({ foodDetails, setFoodDetails }) => {
   const { name, price, description, available, img, _id } = foodDetails;
-  const { register, handleSubmit, errors, reset } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
   const [user] = useAuthState(auth);
 
-  const handleOrder = handleSubmit(async (e) => {
-    e.preventDefault();
+  const handleOrder = async (data) => {
+    // e.preventDefault();
 
     const order = {
       productId: _id,
       img: img,
       name: name,
       price: price,
-      consumer: user?.email,
+      consumerEmail: user?.email,
       consumerName: user?.displayName,
-      quantity: e?.target?.quantity?.value,
-      phone: e?.target?.phone?.value,
-      address: e?.target?.address?.value,
+      orderQuantity: data?.orderQuantity,
+      number: data?.number,
+      address: data?.address,
     };
-
     fetch("http://localhost:5000/order", {
       method: "POST",
       headers: {
@@ -37,9 +41,9 @@ const FoodDetails = ({ foodDetails, setFoodDetails }) => {
         /*  if (result?.insertedId) {
           toast.success("Successfully placed your order!");
         } */
-        e.target.reset();
+        reset();
       });
-  });
+  };
 
   return (
     <div>
@@ -55,7 +59,7 @@ const FoodDetails = ({ foodDetails, setFoodDetails }) => {
             ✕
           </label>
           <form
-            onSubmit={handleOrder}
+            onSubmit={handleSubmit(handleOrder)}
             className="flex flex-col lg:flex-row items-center "
           >
             <div className="">
@@ -85,23 +89,23 @@ const FoodDetails = ({ foodDetails, setFoodDetails }) => {
                   <div>
                     <input
                       type="text"
-                      name="quantity"
+                      name="address"
                       min="1"
                       max={available}
-                      placeholder="Address"
+                      placeholder="Your Address"
                       required
-                      class="input input-sm input-bordered w-full"
+                      className="input input-sm input-bordered w-full"
                       {...register("address", { required: true })}
                     />
                   </div>
                   <div>
                     <input
                       type="tel"
-                      name="quantity"
+                      name="number"
                       length="11"
-                      placeholder="Order Quantity"
+                      placeholder="Your Number"
                       required
-                      class="input input-sm input-bordered w-full"
+                      className="input input-sm input-bordered w-full"
                       {...register("number", { required: true })}
                     />
                   </div>
@@ -115,24 +119,24 @@ const FoodDetails = ({ foodDetails, setFoodDetails }) => {
                   <div>
                     <input
                       type="number"
-                      name="quantity"
+                      name="orderQuantity"
                       min="1"
                       max={available}
                       required
-                      class="input input-sm input-bordered w-full"
+                      className="input input-sm input-bordered w-full"
                       {...register("orderQuantity", { required: true })}
                     />
-                    {/*    <label className="label">
+                    <label className="label">
                       <span className="label-text-alt text-error">
                         {errors.order?.type === "required" &&
                           "Order Quantity is required"}
                         {errors?.order?.message}
                       </span>
-                    </label> */}
+                    </label>
                   </div>
                   <input
                     type="submit"
-                    // disabled={errors?.order}
+                    disabled={errors?.order}
                     className="btn btn-sm btn-primary hover:btn-secondary duration-1000 font-bold "
                     value="Order Now"
                   />

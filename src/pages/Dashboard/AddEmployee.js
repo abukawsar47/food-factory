@@ -43,83 +43,85 @@ const AddEmployee = () => {
       });
   };
   return (
-    <div class="card flex-shrink-0 w-full max-w-2xl md:shadow-2xl bg-base-100  lg:my-16">
-      <div class="card-body">
-        <h1 className="text-center font-bold text-4xl">Add Employee</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex gap-5">
-            <div class="w-full">
-              <label htmlFor="employeeName" class="label">
-                <span class="label-text">Employee Name</span>
+    <div className="flex flex-col items-center justify-center">
+      <div className="card flex-shrink-0 w-full max-w-2xl md:shadow-2xl bg-base-100  lg:my-16">
+        <div className="card-body">
+          <h1 className="text-center font-bold text-4xl">Add Employee</h1>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="flex gap-5">
+              <div className="w-full">
+                <label htmlFor="employeeName" className="label">
+                  <span className="label-text">Employee Name</span>
+                </label>
+                <input
+                  type="text"
+                  id="employeeName"
+                  className="input input-bordered w-full"
+                  {...register("name")}
+                />
+              </div>
+              <div className="w-full">
+                <label className="label">
+                  <span className="label-text">Number</span>
+                </label>
+                <input
+                  type="tel"
+                  minLength="11"
+                  className="input input-bordered w-full"
+                  {...register("number")}
+                />
+              </div>
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                className="input input-bordered w-full"
+                {...register("email")}
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Role</span>
               </label>
               <input
                 type="text"
-                id="employeeName"
-                class="input input-bordered w-full"
-                {...register("name")}
+                className="input input-bordered "
+                {...register("role")}
               />
             </div>
-            <div class="w-full">
-              <label class="label">
-                <span class="label-text">Number</span>
+
+            <div className="form-control">
+              <label
+                htmlFor="image"
+                className={
+                  loading
+                    ? "btn btn-primary loading mt-5"
+                    : "btn btn-primary mt-5"
+                }
+              >
+                {!imageURL ? "Upload Employee Image" : "Ready To Upload"}
               </label>
               <input
-                type="tel"
-                minLength="11"
-                class="input input-bordered w-full"
-                {...register("number")}
+                type="file"
+                id="image"
+                className="input input-bordered hidden"
+                onChange={handleUploadImage}
               />
             </div>
-          </div>
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Email</span>
-            </label>
-            <input
-              type="email"
-              class="input input-bordered w-full"
-              {...register("email")}
-            />
-          </div>
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text">Role</span>
-            </label>
-            <input
-              type="text"
-              class="input input-bordered "
-              {...register("role")}
-            />
-          </div>
-
-          <div class="form-control">
-            <label
-              htmlFor="image"
-              class={
-                loading
-                  ? "btn btn-primary loading mt-5"
-                  : "btn btn-primary mt-5"
-              }
-            >
-              {!imageURL ? "Upload Employee Image" : "Ready To Upload"}
-            </label>
-            <input
-              type="file"
-              id="image"
-              class="input input-bordered hidden"
-              onChange={handleUploadImage}
-            />
-          </div>
-          <div class="form-control mt-6">
-            <button
-              type="submit"
-              class="btn btn-primary"
-              disabled={!imageURL ? true : false}
-            >
-              Add Employee
-            </button>
-          </div>
-        </form>
+            <div className="form-control mt-6">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                disabled={!imageURL ? true : false}
+              >
+                Add Employee
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
